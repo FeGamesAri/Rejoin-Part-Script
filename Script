@@ -1,0 +1,12 @@
+-- Server Script inside the part with ClickDetector
+local clickDetector = script.Parent:WaitForChild("ClickDetector")
+local teleportService = game:GetService("TeleportService")
+
+-- Function to rejoin player when the part is clicked
+local function onPartClicked(player)
+	local placeId = game.PlaceId  -- Gets the current place ID
+	teleportService:Teleport(placeId, player)  -- Teleports the player to rejoin
+end
+
+-- Connect the function to the ClickDetector's MouseClick event
+clickDetector.MouseClick:Connect(onPartClicked)
